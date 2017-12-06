@@ -1,3 +1,17 @@
+$(document).ready(function(){
+            $(".gButton").click(function(){
+              $(".troubleshooter").hide();
+              $(".gmail").show();
+            });
+            $(".tButton").click(function(){
+              $(".gmail").hide();
+              $(".troubleshooter").show();
+            });
+            $(".swap").click(function(){
+                $(this.parentElement.fadeToggle());
+            });
+          });
+
 /*$(function() {
 
     var newHash      = "",
@@ -39,16 +53,3 @@
     $(window).trigger('hashchange');
 });
 */
-$(document).ready(function(){
-            $(".showGmail").click(function(){
-              $(".troubleshooter").slideUp();
-              $(".gmail").slideDown();
-            });
-            $(".showTroubleshooter").click(function(){
-              $(".gmail").slideUp();
-              $(".troubleshooter").slieDown();
-            });
-            $(".swap").click(function(){
-                $(this.parentElement.fadeToggle();
-            });
-          });
