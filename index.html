@@ -116,10 +116,28 @@
       onreadystatechange="if (this.readyState === 'complete') this.onload()">
     	</script>
     <script type="text/javascript">
-    	function yourMom() {
-    		document.getElementById("prompt").innerHTML = "AAAaaAAaaaaa";
+      let questionid = 0;
+      let previousAnswers = [null];
+    	function reloadInterface() {
+    		document.getElementById("prompt").innerHTML = 'prompt';
+        document.getElementById("Button1").innerHTML = 'bootan';
+        document.getElementById("Button2").innerHTML = 'bootan2';
+        document.getElementById("Button3").innerHTML = 'bootan3';
+        document.getElementById("Button4").innerHTML = 'bootan4';
+        previousAnswers = previousAnswers.push(questionid);
+        questionid = getNextQuestion();
+        console.log(questionid);
     	}
+      function getButton1(){
 
+      }
+      function getNextQuestion(id){
+        switch(id){
+          default: 
+            return 0;
+            break;
+        }
+      }
     </script>
 </head>
 <header>
@@ -136,16 +154,16 @@
 			<div class="col-md-2">
 			</div>
 			<div class="col-md-2">
-				<button class="btn b1" onclick="yourMom()">Button2</button>
+				<button class="btn b1" id="Button1" onclick="reloadInterface()">Button1</button>
 			</div>
 			<div class="col-md-2">
-				<button class="btn b2">Button3</button>
+				<button class="btn b2" id="Button2">Button2</button>
 			</div>
 			<div class="col-md-2">
-				<button class="btn b3">Button4</button>
+				<button class="btn b3" id="Button3">Button3</button>
 			</div>
 			<div class="col-md-2">
-				<button class="btn b4">Button5</button>
+				<button class="btn b4" id="Button4">Button4</button>
 			</div>
 			<div class="col-md-2">
 			</div>
