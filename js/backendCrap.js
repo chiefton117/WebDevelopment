@@ -37,17 +37,29 @@ function generateButtons(id){
           break;
         }
       } 
-      const getNextQuestion = rID =>{ // gets the question id based on the responce goto
+      const getGoTo = rID =>{ // gets the question id based on the responce goto
         switch(rID){
+          case r1:
+          return 1;
+          break;
+          case r3:
+          return 3;
+          break;
           default: 
-            return 0;
+            return 0; // should call gmail function
             break;
         }
       }
       const getResponces = id =>{ //gets array of responces based on question id
         switch(id){
-          case 0: 
+          case 1: 
           return ['r1','r2','r3','r4'];
+          break;
+          case 2:
+          return ['r5','r6','r7','r8'];
+          break;
+          case 3:
+          return ['r9','r10'];
           break;
           default: 
           return '';
