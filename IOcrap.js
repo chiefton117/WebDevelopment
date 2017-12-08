@@ -21,18 +21,4 @@ let questionid = 0;
         questionid = getNextQuestion();
         console.log(questionid);
     	}
-      const getQuestionByID = id =>{
-        switch(id){
-          
-        }
-      } 
-      const getNextQuestion = rID =>{ // gets the question id based on the responce goto
-        switch(rID){
-          default: 
-            return 0;
-            break;
-        }
-      }
-      const getResponces = id =>{ //gets array of responces based on question id
-        
-      }
+      
