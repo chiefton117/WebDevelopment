@@ -46,6 +46,11 @@ function generateButtons(id){
       }
       const getResponces = id =>{ //gets array of responces based on question id
         switch(id){
-          case 0;
+          case 0: 
+          return ['r1','r2','r3','r4'];
+          break;
+          default: 
+          return '';
+          break;
         }
       }
