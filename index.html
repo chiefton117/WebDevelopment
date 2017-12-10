@@ -12,7 +12,7 @@
       onload="this.onload=function(){};handleClientLoad()"
       onreadystatechange="if (this.readyState === 'complete') this.onload()">
     	</script>
-    <script type="text/javascript" src="IOcrap.js"></script>
+    <script type="text/javascript" src="js/IOcrap.js"></script>
 </head>
 <header>
 	<div  class="container">
@@ -23,21 +23,56 @@
 </div>
 </header>
 <body>
-	<div class="container">
+	<div class="container" id="btn4" style="padding-top: 1rem;">
 		<div class="row" style="width: 100% !important;">
+			<div class="col-md-3">
+				<button class="btn b1" id="Button1" onclick="reloadInterface(1)">Button1</button>
+			</div>
+			<div class="col-md-3">
+				<button class="btn b2" id="Button2" onclick="createRow2()">Button2</button>
+			</div>
+			<div class="col-md-3">
+				<button class="btn b3" id="Button3" onclick="createRow4()">Button3</button>
+			</div>
+			<div class="col-md-3">
+				<button class="btn b4" id="Button4">Button4</button>
+			</div>	
+		</div>
+	</div>
+	<div class="container" id="btn3">
+		<div class="row" style="width: 100% !important;">
+			<div class="col-md-2">
+			</div>
+			<div class="col-md-8">
+			<div class="row">
+				<div class="col-md-4">
+					<button class="btn b1" id="Button1" onclick="reloadInterface(1)">Button1</button>
+				</div>
+				<div class="col-md-4">
+					<button class="btn b2" id="Button2">Button2</button>
+				</div>
+				<div class="col-md-4">
+					<button class="btn b3" id="Button3">Button3</button>
+				</div>
+			</div>
+			</div>
+			<div class="col-md-2">
+			</div>
+		</div>
+	</div>
+	<div class="container" id="btn2">
+		<div class="row" style="width: 100% !important;">
+			<div class="col-md-2">
+			</div>
 			<div class="col-md-2">
 			</div>
 			<div class="col-md-2">
 				<button class="btn b1" id="Button1" onclick="reloadInterface(1)">Button1</button>
 			</div>
 			<div class="col-md-2">
-				<button class="btn b2" id="Button2">Button2</button>
+				<button class="btn b3" id="Button2">Button2</button>
 			</div>
 			<div class="col-md-2">
-				<button class="btn b3" id="Button3">Button3</button>
-			</div>
-			<div class="col-md-2">
-				<button class="btn b4" id="Button4">Button4</button>
 			</div>
 			<div class="col-md-2">
 			</div>
