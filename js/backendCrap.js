@@ -1,4 +1,4 @@
-      var questionID;
+      var promptID;
 
       function generateButtons(id){
         switch(id){
@@ -19,7 +19,7 @@
           break;
         }
       }
-      const getQuestionByID = id =>{
+      const getPromptByID = id =>{
         switch(id){ 
           case 0: 
             return "Please add any information we should know below:";
@@ -38,7 +38,7 @@
             break;
         }
       } 
-      const getGoTo = rID =>{ // gets the question id based on the responce goto
+      function getGoTo(rID){ // gets the question id based on the responce goto
         switch(rID){
           case r1:
             return 1;
@@ -51,7 +51,7 @@
             break;
         }
       }
-      const getResponces = id =>{ //gets array of responces based on question id
+      function getResponses(id){ //gets array of responces based on question id
         switch(id){
           case 1: 
             return ['r1','r2','r3','r4'];
