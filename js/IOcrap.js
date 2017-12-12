@@ -1,3 +1,4 @@
+<<<<<<< HEAD
       var questionid = 0;
       var previousAnswers = [null];
       var twoCounter = 0;
@@ -10,6 +11,9 @@
     	function reloadInterface(buttonnum) { // refreshes the interface and logs past responces
         switch(buttonnum){
           case 1: //use the response id to get the goto of the question, add the responce and question to list of previous responces and questions, and reload the interface based on the new question
+=======
+
+>>>>>>> 9666b8aa0435bc4999a4cb875fcf1319b437a444
 let promptid = 0;
       let previousResponses = [null];
 
