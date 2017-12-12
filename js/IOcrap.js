@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
       var questionid = 0;
       var previousAnswers = [null];
       var twoCounter = 0;
@@ -7,15 +7,6 @@
       var threeRCounter = 0;
       var fourCounter = 0;
       var fourRCounter = 0;
-
-    	function reloadInterface(buttonnum) { // refreshes the interface and logs past responces
-        switch(buttonnum){
-          case 1: //use the response id to get the goto of the question, add the responce and question to list of previous responces and questions, and reload the interface based on the new question
-=======
-
->>>>>>> 9666b8aa0435bc4999a4cb875fcf1319b437a444
-let promptid = 0;
-      let previousResponses = [null];
 
     	function reloadInterface(buttonnum) { // refreshes the interface and logs past responces
         switch(buttonnum){
@@ -28,32 +19,9 @@ let promptid = 0;
           case 4:
           break;
         }
-    		document.getElementById("prompt").innerHTML = 'prompt';
-        document.getElementById("Button1").innerHTML = 'bootan';
-        document.getElementById("Button2").innerHTML = 'bootan2';
-        document.getElementById("Button3").innerHTML = 'bootan3';
-        document.getElementById("Button4").innerHTML = 'bootan4';
-        previousAnswers = previousAnswers.push(questionid);
-        questionid = getNextQuestion();
-        console.log(questionid);
-    	}
-      const getQuestionByID = id =>{
-        switch(id){
-          
-        }
-      } 
-      const getNextQuestion = rID =>{ // gets the question id based on the responce goto
-        switch(rID){
-          default: 
-            return 0;
-            break;
-        }
-      }
-      const getResponses = id =>{ //gets array of responces based on question id
-        }
       }
     }
-      function createRow2(inpu1, input2, input3) {
+      function createRow2(inpu1, input2) {
         var thisContainer = "containerB2".concat(twoCounter);
         var thisRow = "rowB2".concat(twoRCounter);
         var container = document.createElement("div");  //Add container div into body
@@ -88,7 +56,7 @@ let promptid = 0;
 
         twoCounter++;
       }
-      function createRow3() {
+      function createRow3(input1, input2, input3) {
 
         var thisContainer = "containerB3".concat(threeCounter);
         var thisRow = "rowB3".concat(threeRCounter);
@@ -174,13 +142,4 @@ let promptid = 0;
         document.getElementById(thisRow.concat("col4")).appendChild(buttons[3]);
         buttons[3].innerHTML = "Button4";
         fourRCounter++;
-      }
-      function okay() {
-        document.getElementById("Button1").innerHTML = 'dog';
-        document.getElementById("Button2").innerHTML = 'cat';
-        document.getElementById("Button3").innerHTML = 'horse';
-        document.getElementById("Button4").innerHTML = 'b';
-        previousAnswers = previousResponses.push(promptid);
-        promptid = getNextprompt();
-        console.log(promptid);
       }
