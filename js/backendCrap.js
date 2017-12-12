@@ -19,7 +19,7 @@
           break;
         }
       }
-      const getPromptByID = id =>{
+      function getPromptByID(id){
         switch(id){ 
           case 0: 
             return "Please add any information we should know below:";
@@ -66,4 +66,7 @@
             return '';
             break;
         }
+      }
+      function getResponseByID(){
+        //TODO
       }
