@@ -19,7 +19,7 @@
           break;
         }
       }
-      const getPromptByID = id =>{
+      function getPromptByID(id){
         switch(id){ 
           case 0: 
             return "Please add any information we should know below:";
@@ -64,6 +64,46 @@
             break;
           default: 
             return '';
+            break;
+        }
+      }
+      function getResponseByID(rID){
+         switch(rID){
+          case r1:
+            return "dog";
+            break;
+          case r2:
+            return "cat";
+            break;
+          case r3:
+            return "bird";
+            break;
+          case r4:
+            return "horse";
+            break;
+          case r5:
+            return "labrador";
+            break;
+          case r5:
+            return "labrador";
+            break;
+          case r6:
+            return "collie";
+            break;
+          case r7:
+            return "collie";
+            break;
+          case r8:
+            return "beagle";
+            break;
+          case r9:
+            return "yes";
+            break;
+          case r10:
+            return "no";
+            break;
+          default: 
+            return ""; // should call gmail function
             break;
         }
       }
