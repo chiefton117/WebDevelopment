@@ -1,9 +1,18 @@
+<<<<<<< HEAD
       var questionid = 0;
       var previousAnswers = [null];
 
     	function reloadInterface(buttonnum) { // refreshes the interface and logs past responces
         switch(buttonnum){
           case 1: //use the response id to get the goto of the question, add the responce and question to list of previous responces and questions, and reload the interface based on the new question
+=======
+let promptid = 0;
+      let previousResponses = [null];
+
+    	function reloadInterface(buttonnum) { // refreshes the interface and logs past responces
+        switch(buttonnum){
+          case 1: //use the responce id to get the goto of the prompt, add the responce and prompt to list of previous responces and prompts, and reload the interface based on the new prompt
+>>>>>>> 9161f8ca3f8f27de5a7dbae2810d39c7497427f8
           break;
           case 2:
           break;
@@ -13,6 +22,7 @@
           break;
         }
     		document.getElementById("prompt").innerHTML = 'prompt';
+<<<<<<< HEAD
         document.getElementById("Button1").innerHTML = 'bootan';
         document.getElementById("Button2").innerHTML = 'bootan2';
         document.getElementById("Button3").innerHTML = 'bootan3';
@@ -103,3 +113,14 @@
         document.getElementById("col4").appendChild(buttons[3]);
         buttons[3].innerHTML = "Button4";
       }
+=======
+        document.getElementById("Button1").innerHTML = 'dog';
+        document.getElementById("Button2").innerHTML = 'cat';
+        document.getElementById("Button3").innerHTML = 'horse';
+        document.getElementById("Button4").innerHTML = 'b';
+        previousAnswers = previousResponses.push(promptid);
+        promptid = getNextprompt();
+        console.log(promptid);
+    	}
+      
+>>>>>>> 9161f8ca3f8f27de5a7dbae2810d39c7497427f8
