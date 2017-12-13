@@ -27,7 +27,7 @@
         document.body.appendChild(container);
         var row = document.createElement("div"); //Add a row into container
         row.setAttribute('class', "row");
-        row.setAttribute('id', thisRow)
+        row.setAttribute('id', thisRow);
         document.getElementById(thisContainer).appendChild(row);
       }
       function newPrompt() {
@@ -181,21 +181,21 @@
         columns4[0].setAttribute('id', thisRow.concat("col1"));
         document.getElementById(thisRow.concat("col1")).appendChild(buttons[0]);
         buttons[0].setAttribute("onclick", "alert(getGoTo('r1')), this.style.fontWeight = 'bold', this.className += ' active', newPrompt(getPromptByID(1)), createRow4(getResponseByID(getResponses(1)[0]), getResponseByID(getResponses(1)[1]), getResponseByID(getResponses(1)[2]), getResponseByID(getResponses(1)[3]))");
-        buttons[0].innerHTML = arguments[0];
+        buttons[0].innerHTML = getResponseByID(arguments[0][0]);
 
         columns4[1].setAttribute('id', thisRow.concat("col2"));
         document.getElementById(thisRow.concat("col2")).appendChild(buttons[1]);
         buttons[1].setAttribute("onclick", "alert(getGoTo('r2')), this.style.fontWeight = 'bold', this.className += ' active', newPrompt(getPromptByID(1)), createRow4(getResponseByID(getResponses(1)[0]), getResponseByID(getResponses(1)[1]), getResponseByID(getResponses(1)[2]), getResponseByID(getResponses(1)[3]))");
-        buttons[1].innerHTML = arguments[1];
+        buttons[1].innerHTML = getResponseByID(arguments[0][1]);
 
         columns4[2].setAttribute('id', thisRow.concat("col3"));
         document.getElementById(thisRow.concat("col3")).appendChild(buttons[2]);
         buttons[2].setAttribute("onclick", "alert(getGoTo('r3')), this.style.fontWeight = 'bold', this.className += ' active', newPrompt(getPromptByID(1)), createRow4(getResponseByID(getResponses(1)[0]), getResponseByID(getResponses(1)[1]), getResponseByID(getResponses(1)[2]), getResponseByID(getResponses(1)[3]))");
-        buttons[2].innerHTML = arguments[2];
+        buttons[2].innerHTML = getResponseByID(arguments[0][2]);
 
         columns4[3].setAttribute('id', thisRow.concat("col4"));
         document.getElementById(thisRow.concat("col4")).appendChild(buttons[3]);
         buttons[3].setAttribute("onclick", "alert(getGoTo('r4')), this.style.fontWeight = 'bold', this.className += ' active', newPrompt(getPromptByID(1)), createRow4(getResponseByID(getResponses(1)[0]), getResponseByID(getResponses(1)[1]), getResponseByID(getResponses(1)[2]), getResponseByID(getResponses(1)[3]))");
-        buttons[3].innerHTML = arguments[3];
+        buttons[3].innerHTML = getResponseByID(arguments[0][3]);
         fourRCounter++;
       }
