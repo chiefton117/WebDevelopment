@@ -1,7 +1,7 @@
       var promptID;
 
-      function generateButtons(id){
-        switch(id){
+      function generateButtons(){
+        switch(arguments[0]){
           case 0: 
           return false;
           break;
@@ -19,8 +19,8 @@
           break;
         }
       }
-      function getPromptByID(id){
-        switch(id){ 
+      function getPromptByID(){
+        switch(arguments[0]){ 
           case 0: 
             return "Please add any information we should know below:";
             break;
@@ -38,21 +38,25 @@
             break;
         }
       } 
-      function getGoTo(rID){ // gets the question id based on the responce goto
-        switch(rID){
-          case r1:
+      function getGoTo(){ // gets the question id based on the response goto
+        switch(arguments[0]){
+          case "r1":
             return 1;
             break;
-          case r3:
+          case "r3":
             return 3;
             break;
           default: 
+            printInfo();
             return 0; // should call gmail function
             break;
         }
       }
-      function getResponses(id){ //gets array of responces based on question id
-        switch(id){
+      function printInfo() {
+        alert(document.getElementById('active'));
+      }
+      function getResponses(){ //gets array of responces based on question id
+        switch(arguments[0]){
           case 1: 
             return ['r1','r2','r3','r4'];
             break;
@@ -67,39 +71,36 @@
             break;
         }
       }
-      function getResponseByID(rID){
-         switch(rID){
-          case r1:
+      function getResponseByID(){
+         switch(arguments[0]){
+          case "r1":
             return "dog";
             break;
-          case r2:
+          case "r2":
             return "cat";
             break;
-          case r3:
+          case "r3":
             return "bird";
             break;
-          case r4:
+          case "r4":
             return "horse";
             break;
-          case r5:
+          case "r5":
             return "labrador";
             break;
-          case r5:
-            return "labrador";
-            break;
-          case r6:
+          case "r6":
             return "collie";
             break;
-          case r7:
+          case "r7":
             return "collie";
             break;
-          case r8:
+          case "r8":
             return "beagle";
             break;
-          case r9:
+          case "r9":
             return "yes";
             break;
-          case r10:
+          case "r10":
             return "no";
             break;
           default: 
