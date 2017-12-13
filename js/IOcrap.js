@@ -38,16 +38,19 @@
         switch(arguments[0]){
           case 1:
           newPrompt(getPromptByID(0));
-          createRow4(getResponses(getGoTo())); //use the response id to get the goto of the prompt, add the responce and prompt to list of previous responces and prompts, and reload the interface based on the new prompt
+          createRow4(getResponses(getGoTo("r1"))); //use the response id to get the goto of the prompt, add the responce and prompt to list of previous responces and prompts, and reload the interface based on the new prompt
           break;
           case 2:
           newPrompt(getPromptByID(1));
+          createRow4(getResponses(getGoTo("r2")));
           break;
           case 3:
           newPrompt(getPromptByID(2));
+          createRow4(getResponses(getGoTo("r3")));
           break;
           case 4:
           newPrompt(getPromptByID(3));
+          createRow4(getResponses(getGoTo("r4")));
           break;
         }
       }
