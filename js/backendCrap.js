@@ -12,7 +12,7 @@
           return true;
           break;
           case 3:
-          return true:
+          return true;
           break;
           default:
           return false;

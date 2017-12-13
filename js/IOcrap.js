@@ -8,6 +8,25 @@
       var fourCounter = 0;
       var fourRCounter = 0;
 
+      var button1ID;
+      var button2ID;
+      var button3ID;
+      var button4ID;
+      var rowCount;
+
+      function displayPrompt(id){
+        var thisContainer = "containerB2".concat(twoCounter);
+        var thisRow = "rowB2".concat(twoRCounter);
+        var container = document.createElement("div");  //Add container div into body
+        container.setAttribute('class', "container");
+        container.setAttribute('id', thisContainer); 
+        document.body.appendChild(container);
+        var row = document.createElement("div"); //Add a row into container
+        row.setAttribute('class', "row");
+        row.setAttribute('id', thisRow)
+        document.getElementById(thisContainer).appendChild(row);
+
+      }
     	function reloadInterface(buttonnum) { // refreshes the interface and logs past responces
         switch(buttonnum){
           case 1: //use the responce id to get the goto of the prompt, add the responce and prompt to list of previous responces and prompts, and reload the interface based on the new prompt
@@ -19,19 +38,55 @@
           case 4:
           break;
         }
+<<<<<<< HEAD
       }
       function createRow2(input1, input2) {
         var thisContainer = "containerB2".concat(twoCounter);
         var thisRow = "rowB2".concat(twoRCounter);
         var container = document.createElement("div");  //Add container div into body
+=======
+        rowCount ++;
+    }
+    
+    function createContainer(containerID){
+       var container = document.createElement("div");  //Add container div into body
+>>>>>>> a0b7fe09d658f1c9077431398087c7fa2eb8cb9c
         container.setAttribute('class', "container");
-        container.setAttribute('id', thisContainer); 
+        container.setAttribute('id', containerID); 
         document.body.appendChild(container);
-
+    }
+    function createRow(containerID, rowID){
         var row = document.createElement("div"); //Add a row into container
         row.setAttribute('class', "row");
-        row.setAttribute('id', thisRow)
-        document.getElementById(thisContainer).appendChild(row);
+        row.setAttribute('id', rowID)
+        document.getElementById(containerID).appendChild(row);
+    }
+    function createButtons(rowID, buttonArray){
+      addSpacerColumn(rowID);
+      var tempArray = buttonArray;
+      for (var i = 0; i  < buttonArray.length; i++) {
+        tempArray[i] = document.createElement("button");
+        tempArray[i].setAttribute('class', "btn");
+        tempArray[i].interHTML = getResponseByID(buttonArray[i]);
+        
+        } 
+      addSpacerColumn(rowID); 
+    }
+    
+    function addSpacerColumn(rowID){
+      var tempColumn = document.createElement("div");
+      tempColumn.setAttribute('class', "col-md-2");
+      document.getElementById(rowID).appendChild(tempColumn);
+    }
+      function createRow2(inpu1, input2) {
+        
+        var thisContainer = "containerB2".concat(rowCount);
+        var thisRow = "rowB2".concat(rowCount);
+        
+        createContainer(thisContainer);
+
+        createRow(thisContainer, thisRow);
+
         twoRCounter++;
         var buttons = ["button1", "button2"];
         for(var i = 0; i < 2; i++) {
