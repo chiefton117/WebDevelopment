@@ -1,4 +1,5 @@
       var promptID;
+      var responses = "| ";
 
       function generateButtons(){
         switch(arguments[0]){
@@ -46,14 +47,18 @@
           case "r3":
             return 3;
             break;
-          default: 
+          default:
             printInfo();
             return 0; // should call gmail function
             break;
         }
       }
       function printInfo() {
-        alert(document.getElementById('active'));
+      for(var i = 0; i < document.getElementsByClassName("active").length; i++) {
+          responses = responses.concat(document.getElementsByClassName("active")[i].innerHTML + " | ");
+        }
+        
+        alert(responses);
       }
       function getResponses(){ //gets array of responces based on question id
         switch(arguments[0]){
