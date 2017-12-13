@@ -8,11 +8,12 @@
       var fourCounter = 0;
       var fourRCounter = 0;
 
-      var button1ID;
-      var button2ID;
-      var button3ID;
-      var button4ID;
-      var rowCount;
+      var button1ID; //String current rID of button 1
+      var button2ID; //String current rID of button 2
+      var button3ID; //String current rID of button 3
+      var button4ID; //String current rID of button 4
+      var rowCount; //Current Ammount of rows
+      var promptID; // Current prompt ID
       function displayComment() {
         var com = document.getElementById("comment").innerHTML;
 
