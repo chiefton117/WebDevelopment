@@ -1,6 +1,10 @@
       var promptID;
       var responses = "| ";
-
+      /*
+      Determines if front end should generate buttons or a text box
+      @param int prompt ID 
+      @return boolean true if buttons should be generated, false if a text field should be generated instead
+      */
       function generateButtons(){
         switch(arguments[0]){
           case 0: 
@@ -20,6 +24,11 @@
           break;
         }
       }
+      /*
+      Gets the text of a prompt by the ID of the prompt
+      @param int prompt ID
+      @return String prompt text
+      */
       function getPromptByID(){
         switch(arguments[0]){ 
           case 0: 
@@ -38,8 +47,13 @@
             return "Please add any information we should know below:";
             break;
         }
-      } 
-      function getGoTo(){ // gets the question id based on the response goto
+      }
+      /*
+      Gets the next prompt id based on the response goto
+      @param String rID; ID of the response
+      @return int prompt ID
+      */ 
+      function getGoTo(){
         switch(arguments[0]){
           case "r1":
             return 1;
@@ -53,6 +67,9 @@
             break;
         }
       }
+      /*
+      Prints history of prompts and selected responses
+      */
       function printInfo() {
       for(var i = 0; i < document.getElementsByClassName("active").length; i++) {
           responses = responses.concat(document.getElementsByClassName("active")[i].innerHTML + " | ");
@@ -60,7 +77,12 @@
         
         alert(responses);
       }
-      function getResponses(){ //gets array of responces based on question id
+      /*
+      Gets responses based on question ID
+      @param int prompt ID 
+      @return String[]
+      */
+      function getResponses(){
         switch(arguments[0]){
           case 1: 
             return ['r1','r2','r3','r4'];
@@ -76,6 +98,10 @@
             break;
         }
       }
+      /* Get response text based on rID
+      @param String rID 
+      @return String response text 
+      */
       function getResponseByID(){
          switch(arguments[0]){
           case "r1":
