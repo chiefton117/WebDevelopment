@@ -20,8 +20,7 @@
           break;
         }
       }
-    }
-      function createRow2(inpu1, input2) {
+      function createRow2(input1, input2) {
         var thisContainer = "containerB2".concat(twoCounter);
         var thisRow = "rowB2".concat(twoRCounter);
         var container = document.createElement("div");  //Add container div into body
@@ -49,10 +48,10 @@
         }
         columns2[2].setAttribute('id', thisRow.concat("col2"));
         document.getElementById(thisRow.concat("col2")).appendChild(buttons[0]);
-        buttons[0].innerHTML = "Button1";
+        buttons[0].innerHTML = input1;
         columns2[3].setAttribute('id', thisRow.concat("col3"));
         document.getElementById(thisRow.concat("col3")).appendChild(buttons[1]);
-        buttons[1].innerHTML = "Button2";
+        buttons[1].innerHTML = input2;
 
         twoCounter++;
       }
@@ -87,18 +86,18 @@
         }
         columns3[0].setAttribute('id', thisRow.concat("col1"));
         document.getElementById(thisRow.concat("col1")).appendChild(buttons[0]);
-        buttons[0].innerHTML = "Button1";
+        buttons[0].innerHTML = input1;
 
         columns3[1].setAttribute('id', thisRow.concat("col2"));
         document.getElementById(thisRow.concat("col2")).appendChild(buttons[1]);
-        buttons[1].innerHTML = "Button2";
+        buttons[1].innerHTML = input2;
 
         columns3[2].setAttribute('id', thisRow.concat("col3"));
         document.getElementById(thisRow.concat("col3")).appendChild(buttons[2]);
-        buttons[2].innerHTML = "Button3";
+        buttons[2].innerHTML = intput3;
         fourRCounter++;
       }
-      function createRow4() {
+      function createRow4(input1, input2, input3, input4) {
         var thisContainer = "containerB4".concat(fourCounter);
         var thisRow = "rowB4".concat(fourRCounter);
         var container = document.createElement("div");  //Add container div into body
@@ -128,18 +127,18 @@
         }
         columns4[0].setAttribute('id', thisRow.concat("col1"));
         document.getElementById(thisRow.concat("col1")).appendChild(buttons[0]);
-        buttons[0].innerHTML = "Button1";
+        buttons[0].innerHTML = input1;
 
         columns4[1].setAttribute('id', thisRow.concat("col2"));
         document.getElementById(thisRow.concat("col2")).appendChild(buttons[1]);
-        buttons[1].innerHTML = "Button2";
+        buttons[1].innerHTML = input2;
 
         columns4[2].setAttribute('id', thisRow.concat("col3"));
         document.getElementById(thisRow.concat("col3")).appendChild(buttons[2]);
-        buttons[2].innerHTML = "Button3";
+        buttons[2].innerHTML = input3;
 
         columns4[3].setAttribute('id', thisRow.concat("col4"));
         document.getElementById(thisRow.concat("col4")).appendChild(buttons[3]);
-        buttons[3].innerHTML = "Button4";
+        buttons[3].innerHTML = input4;
         fourRCounter++;
       }
