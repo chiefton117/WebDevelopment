@@ -12,7 +12,7 @@
       var button2ID; //String current rID of button 2
       var button3ID; //String current rID of button 3
       var button4ID; //String current rID of button 4
-      var rowCount; //Current Ammount of rows
+      var rowCount = 0 //Current Ammount of rows
       var promptID; // Current prompt ID
       function displayComment() {
         var com = document.getElementById("comment").innerHTML;
@@ -34,8 +34,8 @@
       function newPrompt() {
         document.getElementById("prompt").innerHTML = arguments[0];
       }
-    	function reloadInterface() { // refreshes the interface and logs past responces
-        switch(arguments[0]){
+     function reloadInterface(rowCount) { // refreshes the interface and logs past responces
+        /*switch(arguments[0]){
           case 1:
           newPrompt(getPromptByID(0));
           createRow4(getResponses(getGoTo("r1"))); //use the response id to get the goto of the prompt, add the responce and prompt to list of previous responces and prompts, and reload the interface based on the new prompt
@@ -51,39 +51,51 @@
           case 4:
           newPrompt(getPromptByID(3));
           createRow4(getResponses(getGoTo("r4")));
-          break;
-        }
+          break; 
+        }*/
+          createContainer(arguments[0]);
+          createRow(arguments[0]);
+        
       }
     
-    function createContainer(){
+    function createContainer(rowCount){
        var container = document.createElement("div");  //Add container div into body
         container.setAttribute('class', "container");
-        container.setAttribute('id', arguments[0]); 
+        container.setAttribute('id', "container" + arguments[0]); 
         document.body.appendChild(container);
+        console.log(rowCount);
     }
-    function createRow(){
+
+    function createRow(rowID){
         var row = document.createElement("div"); //Add a row into container
         row.setAttribute('class', "row");
-        row.setAttribute('id', arguments[1])
-        document.getElementById(arguments[0]).appendChild(row);
+        row.setAttribute('id', "row" + arguments[0])
+        document.getElementById("container" + arguments[0]).appendChild(row);
+        rowCount ++;
+    	console.log(rowCount);
     }
-    function createButtons(){
+    function createButtons(rowID, promptID){
       addSpacerColumn(arguments[0]);
-      var buttonArray = arguments[1];
+      var buttonArray = getResponses(arguments[1]);
       var tempArray = buttonArray;
       for (var i = 0; i  < arguments[1].length; i++) {
+      	tempArray[i] = document.createElement("div");
+      	tempArray[i].setAttribute('class', "col buttonCol");
+      	tempArray[i].setAttribute('id', "col" + i + "row" + arguments[0]);
+      	document.getElementById("row" + arguments[0]).appendChild(tempArray[i]);
+
         tempArray[i] = document.createElement("button");
         tempArray[i].setAttribute('class', "btn");
         tempArray[i].interHTML = getResponseByID(buttonArray[i]);
-        
+        document.getElementById("col" + i + "row" + arguments[0]).appendChild(tempArray[i]);
         } 
-      addSpacerColumn(rowID); 
+      addSpacerColumn(arguments[0]); 
     }
     
-    function addSpacerColumn(){
+    function addSpacerColumn(rowID){
       var tempColumn = document.createElement("div");
       tempColumn.setAttribute('class', "col-md-2");
-      document.getElementById(rowID).appendChild(tempColumn);
+      document.getElementById("row" + arguments[0]).appendChild(tempColumn);
     }
       function createRow2() {
         
