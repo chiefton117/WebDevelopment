@@ -84,13 +84,13 @@
       */
       function getResponses(){
         switch(arguments[0]){
-          case 1: 
+          case 0: 
             return ['r1','r2','r3','r4'];
             break;
-          case 2:
+          case 1:
             return ['r5','r6','r7','r8'];
             break;
-          case 3:
+          case 2:
             return ['r9','r10'];
             break;
           default: 

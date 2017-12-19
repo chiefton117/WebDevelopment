@@ -13,7 +13,12 @@
       var button3ID; //String current rID of button 3
       var button4ID; //String current rID of button 4
       var rowCount = 0 //Current Ammount of rows
-      var promptID; // Current prompt ID
+      var promptID = 0; // Current prompt ID
+      function tempFctn(rowCount){
+      	createContainer(arguments[0]);
+        createRow(arguments[0]);
+        createButtons(arguments[0],promptID);
+      }
       function displayComment() {
         var com = document.getElementById("comment").innerHTML;
 
@@ -34,8 +39,10 @@
       function newPrompt() {
         document.getElementById("prompt").innerHTML = arguments[0];
       }
-     function reloadInterface(rowCount) { // refreshes the interface and logs past responces
-        /*switch(arguments[0]){
+     function reloadInterface(rowCount, promptID) { // refreshes the interface and logs past responces
+        
+        /*
+        switch(arguments[0]){
           case 1:
           newPrompt(getPromptByID(0));
           createRow4(getResponses(getGoTo("r1"))); //use the response id to get the goto of the prompt, add the responce and prompt to list of previous responces and prompts, and reload the interface based on the new prompt
@@ -55,7 +62,8 @@
         }*/
           createContainer(arguments[0]);
           createRow(arguments[0]);
-        
+          createButtons(arguments[0], arguments[1]);
+          
       }
     
     function createContainer(rowCount){
@@ -76,18 +84,22 @@
     }
     function createButtons(rowID, promptID){
       addSpacerColumn(arguments[0]);
+      
       var buttonArray = getResponses(arguments[1]);
-      var tempArray = buttonArray;
-      for (var i = 0; i  < arguments[1].length; i++) {
+      var tempArray = getResponses(arguments[1]);          
+      for (var i = 0; i  < buttonArray.length; i++) {
+
       	tempArray[i] = document.createElement("div");
       	tempArray[i].setAttribute('class', "col buttonCol");
       	tempArray[i].setAttribute('id', "col" + i + "row" + arguments[0]);
       	document.getElementById("row" + arguments[0]).appendChild(tempArray[i]);
-
+      	
         tempArray[i] = document.createElement("button");
         tempArray[i].setAttribute('class', "btn");
-        tempArray[i].interHTML = getResponseByID(buttonArray[i]);
+        tempArray[i].setAttribute('id', "row" + arguments[0] + "button" + i);       
         document.getElementById("col" + i + "row" + arguments[0]).appendChild(tempArray[i]);
+        document.getElementById("row" + arguments[0] + "button" + i).innerHTML = getResponseByID(buttonArray[i]);
+        
         } 
       addSpacerColumn(arguments[0]); 
     }
