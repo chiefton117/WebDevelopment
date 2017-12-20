@@ -8,16 +8,11 @@
       var fourCounter = 0;
       var fourRCounter = 0;
 
-      var button1ID; //String current rID of button 1
-      var button2ID; //String current rID of button 2
-      var button3ID; //String current rID of button 3
-      var button4ID; //String current rID of button 4
+      var buttonIDs; //String Array current rID of buttons
       var rowCount = 0 //Current Ammount of rows
       var promptID = 0; // Current prompt ID
       function tempFctn(rowCount){
-      	createContainer(arguments[0]);
-        createRow(arguments[0]);
-        createButtons(arguments[0],promptID);
+      	alert(rowCount);
       }
       function displayComment() {
         var com = document.getElementById("comment").innerHTML;
@@ -39,31 +34,14 @@
       function newPrompt() {
         document.getElementById("prompt").innerHTML = arguments[0];
       }
-     function reloadInterface(rowCount, promptID) { // refreshes the interface and logs past responces
+     function reloadInterface(buttonID) { // refreshes the interface and logs past responces
         
-        /*
-        switch(arguments[0]){
-          case 1:
-          newPrompt(getPromptByID(0));
-          createRow4(getResponses(getGoTo("r1"))); //use the response id to get the goto of the prompt, add the responce and prompt to list of previous responces and prompts, and reload the interface based on the new prompt
-          break;
-          case 2:
-          newPrompt(getPromptByID(1));
-          createRow4(getResponses(getGoTo("r2")));
-          break;
-          case 3:
-          newPrompt(getPromptByID(2));
-          createRow4(getResponses(getGoTo("r3")));
-          break;
-          case 4:
-          newPrompt(getPromptByID(3));
-          createRow4(getResponses(getGoTo("r4")));
-          break; 
-        }*/
-          createContainer(arguments[0]);
-          createRow(arguments[0]);
-          createButtons(arguments[0], arguments[1]);
-          
+       	  newPrompt(getPromptByID(getGoTo(arguments[0])));
+          createContainer(rowCount);
+          createRow(rowCount);
+          createButtons(rowCount, promptID);
+          rowCount ++;
+        
       }
     
     function createContainer(rowCount){
@@ -71,42 +49,47 @@
         container.setAttribute('class', "container");
         container.setAttribute('id', "container" + arguments[0]); 
         document.body.appendChild(container);
-        console.log(rowCount);
+       
     }
 
     function createRow(rowID){
         var row = document.createElement("div"); //Add a row into container
         row.setAttribute('class', "row");
-        row.setAttribute('id', "row" + arguments[0])
+
+        row.setAttribute('id', "row" + arguments[0]);
+        
         document.getElementById("container" + arguments[0]).appendChild(row);
-        rowCount ++;
-    	console.log(rowCount);
+        
+    	
     }
     function createButtons(rowID, promptID){
       addSpacerColumn(arguments[0]);
       
       var buttonArray = getResponses(arguments[1]);
-      var tempArray = getResponses(arguments[1]);          
+      var tempArray = getResponses(arguments[1]);
+                
       for (var i = 0; i  < buttonArray.length; i++) {
 
       	tempArray[i] = document.createElement("div");
       	tempArray[i].setAttribute('class', "col buttonCol");
       	tempArray[i].setAttribute('id', "col" + i + "row" + arguments[0]);
       	document.getElementById("row" + arguments[0]).appendChild(tempArray[i]);
-      	
+      	console.log(i);
         tempArray[i] = document.createElement("button");
         tempArray[i].setAttribute('class', "btn");
+        tempArray[i].onclick =  function(){tempFctn('hello world')};//should be changed to reloadInterface
         tempArray[i].setAttribute('id', "row" + arguments[0] + "button" + i);       
         document.getElementById("col" + i + "row" + arguments[0]).appendChild(tempArray[i]);
         document.getElementById("row" + arguments[0] + "button" + i).innerHTML = getResponseByID(buttonArray[i]);
         
-        } 
+        }
       addSpacerColumn(arguments[0]); 
     }
     
     function addSpacerColumn(rowID){
       var tempColumn = document.createElement("div");
       tempColumn.setAttribute('class', "col-md-2");
+      
       document.getElementById("row" + arguments[0]).appendChild(tempColumn);
     }
       function createRow2() {

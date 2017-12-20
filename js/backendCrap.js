@@ -56,10 +56,13 @@
       function getGoTo(){
         switch(arguments[0]){
           case "r1":
-            return 1;
+            return 2;
             break;
           case "r3":
             return 3;
+            break;
+          case "r11":
+            return 1;
             break;
           default:
             printInfo();
@@ -133,6 +136,9 @@
             break;
           case "r10":
             return "no";
+            break;
+          case "r11":
+            return "I need an equipment setup";
             break;
           default: 
             return ""; // should call gmail function
