@@ -48,13 +48,13 @@
 			<div class="col-md-8">
 			<div class="row">
 				<div class="col buttonCol">
-					<button class="btn b1" id="Button1" onclick="this.style.fontWeight = 'bold', this.className += ' active', reloadInterface(1)">My Computer's Broken</button>
+					<button class="btn b1" id="oh" onclick="reloadInterface(this.id, 'r1')">My Computer's Broken</button>
 				</div>
 				<div class="col buttonCol">
-					<button class="btn b2" id="Button2" onclick="reloadInterface('r2')">I need equipment set up</button>
+					<button class="btn b2" id="yeah" onclick="reloadInterface(this.id, 'r2')">I need equipment set up</button>
 				</div>
 				<div class="col buttonCol">
-					<button class="btn b3" id="Button3" onclick="displayComment('comment'), createRow4(getResponses(1))">Email directly with extraneous case</button>
+					<button class="btn b3" id="comment" onclick="displayComment(), createRow4(getResponses(1))">Email directly with extraneous case</button>
 				</div>
 			</div>
 			</div>
@@ -62,10 +62,12 @@
 			</div>
 		</div>
 	</div>
+	<!--
 	<div class="form-group">
-  <label for="comment">Comment:</label>
-  <textarea class="form-control" rows="5" id="comment">Okay</textarea>
-</div>
+  		<label for="comment">Comment:</label>
+  		<textarea class="form-control" rows="5" id="comment">Okay</textarea>
+	</div>
+	-->
 </body>
 <footer>
 </footer>

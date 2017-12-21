@@ -16,8 +16,7 @@
       }
       function displayComment() {
         var com = document.getElementById("comment").innerHTML;
-
-        alert(com);
+        alert("Please send an email to rts@westboroughk12.org, copying and pasting this information directly into the email.  " + com);
       }
       function displayPrompt(){
         var thisContainer = "containerB2".concat(twoCounter);
@@ -34,17 +33,18 @@
       function newPrompt() {
         document.getElementById("prompt").innerHTML = arguments[0];
       }
-     function reloadInterface(buttonID) { // refreshes the interface and logs past responces
-        
-       	  newPrompt(getPromptByID(getGoTo(arguments[0])));
+     function reloadInterface(buttonID, rID) { // refreshes the interface and logs past responces
+         
+          document.getElementById(arguments[0]).style.fontWeight = 'bold';
+       	  newPrompt(getPromptByID(getGoTo(arguments[1])));
           createContainer(rowCount);
           createRow(rowCount);
           createButtons(rowCount, promptID);
-          rowCount ++;
-        
+          rowCount++;
+          
       }
     
-    function createContainer(rowCount){
+    function createContainer(rowCount)  {
        var container = document.createElement("div");  //Add container div into body
         container.setAttribute('class', "container");
         container.setAttribute('id', "container" + arguments[0]); 
@@ -63,6 +63,7 @@
     	
     }
     function createButtons(rowID, promptID){
+      console.log("test");
       addSpacerColumn(arguments[0]);
       
       var buttonArray = getResponses(arguments[1]);
@@ -77,7 +78,7 @@
       	console.log(i);
         tempArray[i] = document.createElement("button");
         tempArray[i].setAttribute('class', "btn");
-        tempArray[i].onclick =  this.style.fontWeight = 'bold', this.className += ' active', function(){tempFctn('hello world')};//should be changed to reloadInterface
+        tempArray[i].onclick = function(){tempFctn('hello world')};//should be changed to reloadInterface
         tempArray[i].setAttribute('id', "row" + arguments[0] + "button" + i);       
         document.getElementById("col" + i + "row" + arguments[0]).appendChild(tempArray[i]);
         document.getElementById("row" + arguments[0] + "button" + i).innerHTML = getResponseByID(buttonArray[i]);
