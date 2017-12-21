@@ -10,7 +10,7 @@
 
       var buttonIDs; //String Array current rID of buttons
       var rowCount = 0 //Current Ammount of rows
-      var promptID = 0; // Current prompt ID
+      var promptID = 1; // Current prompt ID
       function tempFctn(rowCount){
       	alert(rowCount);
       }
@@ -40,6 +40,7 @@
           document.getElementById(arguments[0]).style.fontWeight = 'bold';
        	  newPrompt(getPromptByID(getGoTo(arguments[1])));
           createContainer(rowCount);
+          displayPastPrompt(rowCount, promptID);
           createRow(rowCount);
           createButtons(rowCount, promptID);
 
@@ -65,12 +66,32 @@
         
     	
     }
+    function displayPastPrompt(rowID, promptID) {
+      var row = document.createElement("div"); //Add a row into container
+      var col = document.createElement("div");
+      var prompt = document.createElement("h3");
+
+        row.setAttribute('class', "row");
+        col.setAttribute('class', "col-md-12");
+        row.setAttribute('id', "promptRow" + arguments[0]);
+        col.setAttribute('id', "promptCol" + arguments[0]);
+        prompt.setAttribute('id', "prompt" + arguments[1]);
+        prompt.innerHTML = getPromptByID(arguments[1]);
+        
+        document.getElementById("container" + arguments[0]).appendChild(row);
+        document.getElementById("promptRow" + arguments[0]).appendChild(col);
+        document.getElementById("promptCol" + arguments[0]).appendChild(prompt);
+
+
+    }
     function createButtons(rowID, promptID){
       console.log("test");
-      addSpacerColumn(arguments[0]);
+    //  addSpacerColumn(arguments[0]);
       
       var buttonArray = getResponses(arguments[1]);
       var tempArray = getResponses(arguments[1]);
+      console.log(buttonArray.length);
+      console.log(tempArray);
                 
       for (var i = 0; i  < buttonArray.length; i++) {
 
@@ -78,7 +99,7 @@
       	tempArray[i].setAttribute('class', "col buttonCol");
       	tempArray[i].setAttribute('id', "col" + i + "row" + arguments[0]);
       	document.getElementById("row" + arguments[0]).appendChild(tempArray[i]);
-      	console.log(i);
+      	
         tempArray[i] = document.createElement("button");
         tempArray[i].setAttribute('class', "btn");
         tempArray[i].onclick = function(){tempFctn('hello world')};//should be changed to reloadInterface
@@ -87,7 +108,7 @@
         document.getElementById("row" + arguments[0] + "button" + i).innerHTML = getResponseByID(buttonArray[i]);
         
         }
-      addSpacerColumn(arguments[0]); 
+     // addSpacerColumn(arguments[0]);
     }
     
     function addSpacerColumn(rowID){
