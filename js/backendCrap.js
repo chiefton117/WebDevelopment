@@ -17,6 +17,12 @@
           return true;
           break;
           case 3:
+          return false;
+          break;
+          case 4: 
+          return true;
+          break;
+          case 5: 
           return true;
           break;
           default:
@@ -58,11 +64,17 @@
           case "r1":
             return 2;
             break;
-          case "r3":
+          case "r2":
             return 3;
             break;
-          case "r11":
-            return 1;
+          case "r5":
+            return 4;
+            break;
+          case "r7":
+            return 5;
+            break;
+          case "r8":
+            return 2;
             break;
           default:
             printInfo();
@@ -87,14 +99,17 @@
       */
       function getResponses(){
         switch(arguments[0]){
-          case 0: 
-            return ['r1','r2','r3','r4'];
-            break;
           case 1:
-            return ['r5','r6','r7','r8'];
+            return ['r1','r2','r3'];
             break;
           case 2:
-            return ['r9','r10'];
+            return ['r4','r5'];
+            break;
+          case 4:
+            return ['r6','r7'];
+            break;
+          case 5;
+            return ['r8'];
             break;
           default: 
             return '';
@@ -108,37 +123,28 @@
       function getResponseByID(){
          switch(arguments[0]){
           case "r1":
-            return "dog";
+            return "My Computer's Broken";
             break;
           case "r2":
-            return "cat";
+            return "I need equipment set up";
             break;
           case "r3":
-            return "bird";
+            return "Email directly with extraneous case";
             break;
           case "r4":
-            return "horse";
+            return "Yes";
             break;
           case "r5":
-            return "labrador";
+            return "No";
             break;
           case "r6":
-            return "collie";
+            return "Yes";
             break;
           case "r7":
-            return "collie";
+            return "No";
             break;
           case "r8":
-            return "beagle";
-            break;
-          case "r9":
-            return "yes";
-            break;
-          case "r10":
-            return "no";
-            break;
-          case "r11":
-            return "I need an equipment setup";
+            return "OK";
             break;
           default: 
             return ""; // should call gmail function

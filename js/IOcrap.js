@@ -77,7 +77,7 @@
       	console.log(i);
         tempArray[i] = document.createElement("button");
         tempArray[i].setAttribute('class', "btn");
-        tempArray[i].onclick =  function(){tempFctn('hello world')};//should be changed to reloadInterface
+        tempArray[i].onclick =  this.style.fontWeight = 'bold', this.className += ' active', function(){tempFctn('hello world')};//should be changed to reloadInterface
         tempArray[i].setAttribute('id', "row" + arguments[0] + "button" + i);       
         document.getElementById("col" + i + "row" + arguments[0]).appendChild(tempArray[i]);
         document.getElementById("row" + arguments[0] + "button" + i).innerHTML = getResponseByID(buttonArray[i]);
