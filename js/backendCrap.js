@@ -108,7 +108,7 @@
           case 4:
             return ['r6','r7'];
             break;
-          case 5;
+          case 5:
             return ['r8'];
             break;
           default: 
