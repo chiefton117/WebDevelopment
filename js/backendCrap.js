@@ -1,5 +1,22 @@
       var promptID;
       var responses = "| ";
+      var userLog = "";
+      //adds a prompt to the running record
+      function recordPrompt(promptID){
+        userLog += getPromptByID(arguments[0]) + ": ";
+      }
+      //adds a response to the running record, to be called after recordPrompt() before any other records
+      function recordResponse(rID){
+        userLog += getResponseByID(arguments[0]) + "\n";
+      }
+      //adds text to the running record from a text field
+      function recordText(text){
+        userLog += arguments[0] + "\n";
+      }
+      //returns current user log
+      function getLog(){
+        return userLog;
+      }
       /*
       Determines if front end should generate buttons or a text box
       @param int prompt ID 
