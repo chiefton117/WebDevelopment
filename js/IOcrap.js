@@ -38,6 +38,7 @@
           document.getElementById(arguments[0]).style.fontWeight = 'bold';
        	  newPrompt(getPromptByID(getGoTo(arguments[1])));
           createContainer(rowCount);
+          displayPastPrompt(rowCount, promptID);
           createRow(rowCount);
           createButtons(rowCount, promptID);
           rowCount++;
@@ -70,12 +71,13 @@
         row.setAttribute('class', "row");
         col.setAttribute('class', "col-md-12");
         row.setAttribute('id', "promptRow" + arguments[0]);
+        col.setAttribute('id', "promptCol" + arguments[0]);
         prompt.setAttribute('id', "prompt" + arguments[1]);
-        prompt.innerHTML = arguments[0];
+        prompt.innerHTML = getPromptByID(arguments[1]);
         
         document.getElementById("container" + arguments[0]).appendChild(row);
-        document.getElementByID("promptRow" + arguments[0]).appendChild(col);
-        document.getElementByID("prompt" + arguments[1]).appendChild(col);
+        document.getElementById("promptRow" + arguments[0]).appendChild(col);
+        document.getElementById("promptCol" + arguments[0]).appendChild(prompt);
 
 
     }
