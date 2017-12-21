@@ -41,16 +41,22 @@
             return "Please add any information we should know below:";
             break;
           case 1: 
-            return "What is your favorite animal?";
+            return "Please select an option below";
             break;
           case 2: 
-            return "What is your favorite breed of dog?";
+            return "Does it turn on?";
             break;
           case 3: 
-            return "Does your favorite type of bird fly?";
+            return "Please describe the equipment you need:";
+            break; 
+          case 4: 
+            return "Is it plugged in?";
+            break;
+          case 3: 
+            return "Please plug in the device, then click OK";
             break; 
           default: 
-            return "Please add any information we should know below:";
+            return "";
             break;
         }
       }
