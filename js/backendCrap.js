@@ -17,6 +17,9 @@
       function getLog(){
         return userLog;
       }
+      function submit(){
+        alert('Please send an email to rts@westboroughk12.org, copying and pasting this information directly into the email.  \n' + userLog);
+      }
       /*
       Determines if front end should generate buttons or a text box
       @param int prompt ID 

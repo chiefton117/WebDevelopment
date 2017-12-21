@@ -18,6 +18,7 @@
         var com = document.getElementById("comment").innerHTML;
         alert("Please send an email to rts@westboroughk12.org, copying and pasting this information directly into the email.  " + com);
       }
+      
       function displayPrompt(){
         var thisContainer = "containerB2".concat(twoCounter);
         var thisRow = "rowB2".concat(twoRCounter);
@@ -34,12 +35,14 @@
         document.getElementById("prompt").innerHTML = arguments[0];
       }
      function reloadInterface(buttonID, rID) { // refreshes the interface and logs past responces
-         
+          recordPrompt(promptID);
+          recordResponse(arguments[1]);
           document.getElementById(arguments[0]).style.fontWeight = 'bold';
        	  newPrompt(getPromptByID(getGoTo(arguments[1])));
           createContainer(rowCount);
           createRow(rowCount);
           createButtons(rowCount, promptID);
+
           rowCount++;
           
       }
