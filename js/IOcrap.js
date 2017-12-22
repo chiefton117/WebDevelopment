@@ -38,16 +38,20 @@
      function reloadInterface(buttonID, rID) { // refreshes the interface and logs past responces
           recordPrompt(promptID);
           recordResponse(arguments[1]);
-         
+          console.log(arguments[0]);
+          console.log(arguments[1]);
           document.getElementById(arguments[0]).style.fontWeight = 'bold';
        	  newPrompt(getPromptByID(getGoTo(arguments[1])));
           
           displayPastPrompt(rowCount, promptID);
+          promptID = getGoTo(arguments[1]);
+          
           createContainer(rowCount);
           createRow(rowCount);
           createButtons(rowCount, promptID);
-
           rowCount++;
+
+          
           
       }
     
@@ -55,7 +59,7 @@
        var container = document.createElement("div");  //Add container div into body
         container.setAttribute('class', "container");
         container.setAttribute('id', "container" + arguments[0]); 
-        document.getElementById("responseContainer").appendChild(container);
+        document.getElementById("responseContainer").prepend(container);
        
     }
 
@@ -65,7 +69,7 @@
 
         row.setAttribute('id', "row" + arguments[0]);
         
-       	document.getElementById("responseContainer").prepend(row);
+       	document.getElementById("container" + arguments[0]).appendChild(row);
         
     	
     }
@@ -88,13 +92,12 @@
 
     }
     function createButtons(rowID, promptID){
-      console.log("test");
+      
     //  addSpacerColumn(arguments[0]);
       
       var buttonArray = getResponses(arguments[1]);
       var tempArray = getResponses(arguments[1]);
-      console.log(buttonArray.length);
-      console.log(tempArray);
+      
                 
       for (var i = 0; i  < buttonArray.length; i++) {
 
@@ -105,8 +108,10 @@
       	
         tempArray[i] = document.createElement("button");
         tempArray[i].setAttribute('class', "btn");
-        tempArray[i].onclick = function(){tempFctn('hello world')};//should be changed to reloadInterface
-        tempArray[i].setAttribute('id', "row" + arguments[0] + "button" + i);       
+        let id = "row" + arguments[0] + "button" + i; //temporary variables because it's late, I have a headache, and direct calls didn't work
+        let temp = buttonArray[i]; 
+        tempArray[i].setAttribute('id', id);
+        tempArray[i].onclick = function(){reloadInterface(id, temp)};//should be changed to reloadInterface     
         document.getElementById("col" + i + "row" + arguments[0]).appendChild(tempArray[i]);
         document.getElementById("row" + arguments[0] + "button" + i).innerHTML = getResponseByID(buttonArray[i]);
         

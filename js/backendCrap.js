@@ -18,7 +18,8 @@
         return userLog;
       }
       function submit(){
-        alert('Please send an email to rts@westboroughk12.org, copying and pasting this information directly into the email.  \n' + userLog);
+        alert("Please send an email to rts@westboroughk12.org, copying and pasting this information directly into the email.  \n" + userLog);
+        console.log("Please send an email to rts@westboroughk12.org, copying and pasting this information directly into the email.  \n" + userLog);
       }
       /*
       Determines if front end should generate buttons or a text box
@@ -72,7 +73,7 @@
           case 4: 
             return "Is it plugged in?";
             break;
-          case 3: 
+          case 5: 
             return "Please plug in the device, then click OK";
             break; 
           default: 
