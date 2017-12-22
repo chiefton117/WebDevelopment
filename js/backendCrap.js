@@ -1,7 +1,7 @@
       var promptID;
       var responses = "| ";
       var userLog = "";
-      var textField = "";
+      var textField = '';
       //adds a prompt to the running record
       function recordPrompt(promptID){
         userLog += getPromptByID(arguments[0]) + ": ";
@@ -13,6 +13,8 @@
       //adds text to the running record from a text field
       function recordText(text){
         userLog += arguments[0] + "\n";
+      }
+      function recordTextField(text) {
         textField = arguments[0] + "\n";
       }
       //returns current user log
@@ -83,7 +85,7 @@
       function getPromptByID(){
         switch(arguments[0]){ 
           case 0: 
-            return "Please add any information we should know below:";
+            return "Please add any information we should know below";
             break;
           case 1: 
             return "Please select an option below";
@@ -185,9 +187,11 @@
       @return String response text 
       */
       function getResponseByID(){
+        console.log(textField);
+        console.log(document.getElementById("row" + rowCount + "text"));
          switch(arguments[0]){
           case "r0":
-            return "Additional Information";
+            return textField;
             break;
           case "r1":
             return "My Computer's Broken";

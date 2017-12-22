@@ -38,9 +38,9 @@
      function reloadInterface(buttonID, rID) { // refreshes the interface and logs past responces
           recordPrompt(promptID);
           recordResponse(arguments[1]);
+          
           document.getElementById(arguments[0]).style.fontWeight = 'bold';
           displayPastPrompt(rowCount, promptID);
-          console.log(arguments[1]);
           console.log(getGoTo(arguments[1]));
           promptID = getGoTo(arguments[1]); //this causes it to submit when it shouldn't, otherwise code is functional
           
@@ -52,13 +52,14 @@
           else{
             createTextField(rowCount, promptID);
           }
-          rowCount++;
+          
           if(getGoTo(arguments[1]) != null){ //javascript wizardry
           newPrompt(getPromptByID(getGoTo(arguments[1])));
           }
           else{
             submit();
           }
+
 
           
           
@@ -97,6 +98,7 @@
         document.getElementById("container" + (arguments[0] -1)).prepend(row);
         document.getElementById("promptRow" + arguments[0]).appendChild(col);
         document.getElementById("promptCol" + arguments[0]).appendChild(prompt);
+
     }
     function createTextField(rowID, promptID){
       let textCol = document.createElement("div");
@@ -105,20 +107,18 @@
       let text = document.createElement("input");
       let id = "row" + arguments[0] + "text";
       text.setAttribute('id', id);
-
+      console.log("id" + id);
       textCol.appendChild(text);
       document.getElementById("row" + arguments[0]).appendChild(textCol);
       let submitCol = document.createElement("div");
-      textCol.setAttribute('class',"col");
-      textCol.setAttribute('id', "row" + arguments[0] + "submitCol");
+      submitCol.setAttribute('class',"col");
+      submitCol.setAttribute('id', "row" + arguments[0] + "submitCol");
       let submitBtn = document.createElement("button");
       submitBtn.setAttribute('id',"row" + arguments[0] + "button");
       submitBtn.setAttribute('class',"btn");
       
-      console.log(getResponses(arguments[1])[0]);
-      console.log(document.getElementById(id).value);
-      submitBtn.onclick = function(){recordText(document.getElementById(id).value); console.log(getResponses(arguments[1])[0]);};
-      /*(id,getResponses(arguments[1])[0]);*/
+      
+      submitBtn.onclick = function(){recordTextField(text.value);reloadInterface(id,getResponses(arguments[1])[0]);};
       //reloadInterface(submitBtn.getAttribute('id'),arguments[1].getResponses()[0]);
       
       submitBtn.innerHTML = "Submit";
