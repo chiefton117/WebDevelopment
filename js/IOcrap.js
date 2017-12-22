@@ -40,6 +40,7 @@
           recordResponse(arguments[1]);
           document.getElementById(arguments[0]).style.fontWeight = 'bold';
           displayPastPrompt(rowCount, promptID);
+          console.log(arguments[1]);
           console.log(getGoTo(arguments[1]));
           promptID = getGoTo(arguments[1]); //this causes it to submit when it shouldn't, otherwise code is functional
           
@@ -114,10 +115,11 @@
       submitBtn.setAttribute('id',"row" + arguments[0] + "button");
       submitBtn.setAttribute('class',"btn");
       
-      
-      submitBtn.onclick = function(){recordText(document.getElementById(id).value);reloadInterface(id,getResponses(arguments[1])[0]);};
+      console.log(getResponses(arguments[1])[0]);
+      console.log(document.getElementById(id).value);
+      submitBtn.onclick = function(){console.log(document.getElementById(id).value);reloadInterface(id,getResponses(arguments[1])[0]);};
       //reloadInterface(submitBtn.getAttribute('id'),arguments[1].getResponses()[0]);
-      
+      console.log(submitBtn.onclick);
       submitBtn.innerHTML = "Submit";
       submitCol.appendChild(submitBtn);
       textCol.appendChild(submitCol);

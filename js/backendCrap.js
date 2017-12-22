@@ -118,8 +118,17 @@
           case "r2":
             return 3;
             break;
+          case "r3":
+            return 0;
+            break;
+          case "r4":
+            return 0;
+            break;
           case "r5":
             return 4;
+            break;
+          case "r6":
+            return 0;
             break;
           case "r7":
             return 5;
@@ -156,6 +165,9 @@
             break;
           case 2:
             return ['r4','r5'];
+            break;
+          case 3:
+            return['r9'];
             break;
           case 4:
             return ['r6','r7'];
