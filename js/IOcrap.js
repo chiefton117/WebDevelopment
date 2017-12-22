@@ -38,17 +38,24 @@
      function reloadInterface(buttonID, rID) { // refreshes the interface and logs past responces
           recordPrompt(promptID);
           recordResponse(arguments[1]);
-          console.log(arguments[0]);
-          console.log(arguments[1]);
           document.getElementById(arguments[0]).style.fontWeight = 'bold';
+          if(getGoTo(arguments[1]) != null){ //javascript wizardry
        	  newPrompt(getPromptByID(getGoTo(arguments[1])));
-          
+          }
+          else{
+            submit();
+          }
           displayPastPrompt(rowCount, promptID);
-          promptID = getGoTo(arguments[1]);
+          console.log(getGoTo(arguments[1]));
+          promptID = getGoTo(arguments[1]); //this causes it to submit when it shouldn't, otherwise code is functional
           
           createContainer(rowCount);
           createRow(rowCount);
-          createButtons(rowCount, promptID);
+          if(generateButtons(promptID)){
+            createButtons(rowCount, promptID);}
+          else{
+            createTextField(rowCount, promptID);
+          }
           rowCount++;
 
           
@@ -90,6 +97,29 @@
         document.getElementById("promptCol" + arguments[0]).appendChild(prompt);
 
 
+    }
+    function createTextField(rowID, promptID){
+      let textCol = document.createElement("div");
+      textCol.setAttribute('class',"col");
+      textCol.setAttribute('id', "row" + arguments[0] + "textCol");
+      let text = document.createElement("input");
+      let id = "row" + arguments[0] + "text";
+      text.setAttribute('id', id);
+      textCol.appendChild(text);
+      document.getElementById("row" + arguments[0]).appendChild(textCol);
+      let submitCol = document.createElement("div");
+      textCol.setAttribute('class',"col");
+      textCol.setAttribute('id', "row" + arguments[0] + "submitCol");
+      let submitBtn = document.createElement("button");
+      submitBtn.setAttribute('id',"row" + arguments[0] + "button");
+      submitBtn.setAttribute('class',"btn");
+      
+      submitBtn.onclick = function(){recordText(document.getElementById(id).value);reloadInterface(id,getResponses(arguments[1])[0]);};
+      //reloadInterface(submitBtn.getAttribute('id'),arguments[1].getResponses()[0]);
+      
+      submitBtn.innerHTML = "Submit";
+      submitCol.appendChild(submitBtn);
+      textCol.appendChild(submitCol);
     }
     function createButtons(rowID, promptID){
       

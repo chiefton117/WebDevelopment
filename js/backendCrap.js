@@ -12,6 +12,7 @@
       //adds text to the running record from a text field
       function recordText(text){
         userLog += arguments[0] + "\n";
+        
       }
       //returns current user log
       function getLog(){
@@ -26,7 +27,7 @@
       @param int prompt ID 
       @return boolean true if buttons should be generated, false if a text field should be generated instead
       */
-      function generateButtons(){
+      function generateButtons(promptID){
         switch(arguments[0]){
           case 0: 
           return false;
@@ -103,9 +104,10 @@
           case "r8":
             return 2;
             break;
+          case "r9":
+            return 0;
           default:
-            printInfo();
-            return 0; // should call gmail function
+            return null; // should call gmail function
             break;
         }
       }
@@ -139,7 +141,7 @@
             return ['r8'];
             break;
           default: 
-            return '';
+            return ['r0'];
             break;
         }
       }
@@ -149,6 +151,9 @@
       */
       function getResponseByID(){
          switch(arguments[0]){
+          case "r0":
+            return "Additional Information";
+            break;
           case "r1":
             return "My Computer's Broken";
             break;
@@ -172,6 +177,9 @@
             break;
           case "r8":
             return "OK";
+            break;
+          case "r9":
+            return "Equipment Information";
             break;
           default: 
             return ""; // should call gmail function
