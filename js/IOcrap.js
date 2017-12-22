@@ -9,7 +9,7 @@
       var fourRCounter = 0;
 
       var buttonIDs; //String Array current rID of buttons
-      var rowCount = 0 //Current Ammount of rows
+      var rowCount = 1 //Current Ammount of rows
       var promptID = 1; // Current prompt ID
       function tempFctn(rowCount){
       	alert(rowCount);
@@ -34,9 +34,11 @@
       function newPrompt() {
         document.getElementById("prompt").innerHTML = arguments[0];
       }
+
      function reloadInterface(buttonID, rID) { // refreshes the interface and logs past responces
           recordPrompt(promptID);
           recordResponse(arguments[1]);
+         
           document.getElementById(arguments[0]).style.fontWeight = 'bold';
        	  newPrompt(getPromptByID(getGoTo(arguments[1])));
           createContainer(rowCount);
@@ -78,7 +80,7 @@
         prompt.setAttribute('id', "prompt" + arguments[1]);
         prompt.innerHTML = getPromptByID(arguments[1]);
         
-        document.getElementById("container" + arguments[0]).appendChild(row);
+        document.getElementById("container" + arguments[0]).insertBefore(row, document.getElementById("row" + arguments[0]-1));
         document.getElementById("promptRow" + arguments[0]).appendChild(col);
         document.getElementById("promptCol" + arguments[0]).appendChild(prompt);
 
@@ -117,7 +119,7 @@
       
       document.getElementById("row" + arguments[0]).appendChild(tempColumn);
     }
-      function createRow2() {
+    /*  function createRow2() {
         
         var thisContainer = "containerB2".concat(twoCounter);
         var thisRow = "rowB2".concat(twoCounter);
@@ -240,3 +242,4 @@
         buttons[3].innerHTML = getResponseByID(arguments[0][3]);
         fourRCounter++;
       }
+      */
