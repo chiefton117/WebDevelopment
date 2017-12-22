@@ -117,9 +117,10 @@
       
       console.log(getResponses(arguments[1])[0]);
       console.log(document.getElementById(id).value);
-      submitBtn.onclick = function(){console.log(document.getElementById(id).value);reloadInterface(id,getResponses(arguments[1])[0]);};
+      submitBtn.onclick = function(){recordText(document.getElementById(id).value); console.log(getResponses(arguments[1])[0]);};
+      /*(id,getResponses(arguments[1])[0]);*/
       //reloadInterface(submitBtn.getAttribute('id'),arguments[1].getResponses()[0]);
-      console.log(submitBtn.onclick);
+      
       submitBtn.innerHTML = "Submit";
       submitCol.appendChild(submitBtn);
       textCol.appendChild(submitCol);
