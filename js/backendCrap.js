@@ -1,6 +1,7 @@
       var promptID;
       var responses = "| ";
       var userLog = "";
+      var textField = "";
       //adds a prompt to the running record
       function recordPrompt(promptID){
         userLog += getPromptByID(arguments[0]) + ": ";
@@ -12,7 +13,7 @@
       //adds text to the running record from a text field
       function recordText(text){
         userLog += arguments[0] + "\n";
-        
+        textField = arguments[0] + "\n";
       }
       //returns current user log
       function getLog(){
@@ -21,6 +22,28 @@
       function submit(){
         alert("Please send an email to rts@westboroughk12.org, copying and pasting this information directly into the email.  \n" + userLog);
         console.log("Please send an email to rts@westboroughk12.org, copying and pasting this information directly into the email.  \n" + userLog);
+        
+        $(document.getElementById("responseContainer")).remove();
+        newPrompt("Thank you for using our service");
+        var container = document.createElement("div");
+        var row = document.createElement("div");
+        var col = document.createElement("div");
+        var prompt = document.createElement("h3");
+
+        container.setAttribute('class', "container");
+        row.setAttribute('class', "row");
+        col.setAttribute('class', "col-md-12");
+
+        container.setAttribute('id', "displayContainer");
+        row.setAttribute('id', "displayRow");
+        col.setAttribute('id', "displayCol");
+        prompt.setAttribute('id', "displayPrompt");
+        prompt.innerHTML = userLog;
+
+        document.body.appendChild(container);
+        document.getElementById("displayContainer").appendChild(row);
+        document.getElementById("displayRow").appendChild(col);
+        document.getElementById("displayCol").appendChild(prompt);
       }
       /*
       Determines if front end should generate buttons or a text box
@@ -69,14 +92,14 @@
             return "Does it turn on?";
             break;
           case 3: 
-            return "Please describe the equipment you need:";
+            return "Please describe the equipment you need";
             break; 
           case 4: 
             return "Is it plugged in?";
             break;
           case 5: 
             return "Please plug in the device, then click OK";
-            break; 
+            break;  
           default: 
             return "";
             break;
