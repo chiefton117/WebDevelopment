@@ -41,8 +41,9 @@
          
           document.getElementById(arguments[0]).style.fontWeight = 'bold';
        	  newPrompt(getPromptByID(getGoTo(arguments[1])));
-          createContainer(rowCount);
+          
           displayPastPrompt(rowCount, promptID);
+          createContainer(rowCount);
           createRow(rowCount);
           createButtons(rowCount, promptID);
 
@@ -54,7 +55,7 @@
        var container = document.createElement("div");  //Add container div into body
         container.setAttribute('class', "container");
         container.setAttribute('id', "container" + arguments[0]); 
-        document.body.appendChild(container);
+        document.getElementById("responseContainer").appendChild(container);
        
     }
 
@@ -64,7 +65,7 @@
 
         row.setAttribute('id', "row" + arguments[0]);
         
-        document.getElementById("container" + arguments[0]).appendChild(row);
+       	document.getElementById("responseContainer").prepend(row);
         
     	
     }
@@ -80,7 +81,7 @@
         prompt.setAttribute('id', "prompt" + arguments[1]);
         prompt.innerHTML = getPromptByID(arguments[1]);
         
-        document.getElementById("container" + arguments[0]).insertBefore(row, document.getElementById("row" + arguments[0]-1));
+        document.getElementById("container" + (arguments[0] -1)).prepend(row);
         document.getElementById("promptRow" + arguments[0]).appendChild(col);
         document.getElementById("promptCol" + arguments[0]).appendChild(prompt);
 
