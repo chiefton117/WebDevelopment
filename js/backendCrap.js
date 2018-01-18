@@ -8,29 +8,29 @@
       }
       //adds a response to the running record, to be called after recordPrompt() before any other records
       function recordResponse(rID){
-        userLog += getResponseByID(arguments[0]) + "\n";
+        userLog += getResponseByID(arguments[0]) + "<br>";
       }
       //adds text to the running record from a text field
       function recordText(text){
-        userLog += arguments[0] + "\n";
+        userLog += arguments[0] + "<br>";
       }
       function recordTextField(text) {
-        textField = arguments[0] + "\n";
+        textField = arguments[0] + "<br>";
       }
       //returns current user log
       function getLog(){
         return userLog;
       }
       function submit(){
-        alert("Please send an email to rts@westboroughk12.org, copying and pasting this information directly into the email.  \n" + userLog);
-        console.log("Please send an email to rts@westboroughk12.org, copying and pasting this information directly into the email.  \n" + userLog);
+        
+        console.log("Please send an email to rts@westboroughk12.org, copying and pasting this information directly into the email.  <br>" + userLog);
         
         $(document.getElementById("responseContainer")).remove();
         newPrompt("Thank you for using our service");
         var container = document.createElement("div");
         var row = document.createElement("div");
         var col = document.createElement("div");
-        var prompt = document.createElement("h3");
+        var prompt = document.createElement("p");
 
         container.setAttribute('class', "container");
         row.setAttribute('class', "row");
@@ -40,7 +40,7 @@
         row.setAttribute('id', "displayRow");
         col.setAttribute('id', "displayCol");
         prompt.setAttribute('id', "displayPrompt");
-        prompt.innerHTML = userLog;
+        prompt.innerHTML = "Please send an email to rts@westboroughk12.org, copying and pasting this information directly into the email.  <br>" + userLog;
 
         document.body.appendChild(container);
         document.getElementById("displayContainer").appendChild(row);
