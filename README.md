@@ -1,5 +1,5 @@
-# WebDevelopment
-WHS Troubleshooting Interface
+# Westborough High School Troubleshooting Interface
+
 
 The troubleshooting interface's primary goal is to streamline all technical issues into a uniform, sanitized data structure in order to increase the efficiency of the WHS Help Desk. 
 
